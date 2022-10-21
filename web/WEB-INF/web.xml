@@ -18,7 +18,7 @@
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <!--配置特殊后缀-->
-        <url-pattern>*.action</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
     <!--配置字符编码过滤器-->
@@ -39,7 +39,7 @@
     <filter-mapping>
         <filter-name>filter</filter-name>
         <!--配置特殊后缀-->
-        <url-pattern>*.action</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </filter-mapping>
 
     <!--配置spring类监听器-->

@@ -35,7 +35,7 @@ public class CustomerController {
     }
 
 
-    @RequestMapping(value = "/checklogin.action")
+    @RequestMapping(value = "/checklogin.do")
     public void checklogin(HttpServletRequest request, HttpServletResponse response) throws Exception{
         // 验证登录的方法
 
@@ -72,7 +72,7 @@ public class CustomerController {
         out.close();
     }
 
-    @RequestMapping("/loginout.action")
+    @RequestMapping("/loginout.do")
     public void loginout(HttpServletRequest request,HttpServletResponse response) throws Exception{
         // 注销-将session设置失效
         //注销当前登录用户
@@ -90,7 +90,7 @@ public class CustomerController {
         pw.close();
     }
 
-    @RequestMapping("/getSession1")
+    @RequestMapping("/getSession1.do")
     public void getSession1(HttpServletRequest request,HttpServletResponse response) throws Exception{
         MyMassageDto my=new MyMassageDto();
         HttpSession session=request.getSession();
@@ -111,7 +111,7 @@ public class CustomerController {
         pw.close();
     }
 
-    @RequestMapping("/getSession2")
+    @RequestMapping("/getSession2.do")
     public void getSession2(HttpServletRequest request,HttpServletResponse response) throws Exception {
         MyMassageDto my = new MyMassageDto();
         HttpSession session = request.getSession();
@@ -130,7 +130,7 @@ public class CustomerController {
         }
     }
 
-    @RequestMapping("/addCustomer")
+    @RequestMapping("/addCustomer.do")
     public void addCustomer(HttpServletRequest request,HttpServletResponse response)throws Exception{
         // 添加用户
         //获取用户注册的信息
@@ -160,7 +160,7 @@ public class CustomerController {
         }
     }
 
-    @RequestMapping("/updateCustomer")
+    @RequestMapping("/updateCustomer.do")
     public void updateCustomer(HttpServletRequest request,HttpServletResponse response) throws Exception{
         //获取用户修改的信息
         String u_username=request.getParameter("name");
