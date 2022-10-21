@@ -32,7 +32,7 @@ public interface FirmDao {
 	 * @param firm
 	 * @return true 成功 / false 失败
 	 */
-	boolean updateMyFirm(Firm firm,Integer firmid);
+	boolean updateMyFirm(Firm firm);
 
 	/**
 	 * 通过邮箱和密码查询一个公司

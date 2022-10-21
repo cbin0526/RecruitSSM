@@ -11,9 +11,13 @@ import com.etc.mvc.entity.Customer;
 import com.etc.mvc.entity.Position;
 import com.etc.mvc.entity.Record;
 import com.etc.mvc.service.PositionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PositionServiceImpi implements PositionService{
 
+	@Autowired
 	PositionDao dao;
 	public PositionDao getDao() {
 		return dao;
@@ -38,7 +42,7 @@ public class PositionServiceImpi implements PositionService{
 		if (page==null||page<1||size==null||size<1) {
 			return null;
 		}
-		return dao.queryPosition(page, size);
+		return dao.queryPosition((page-1)*size,size);
 	}
 	@Override
 	public Long getAllCountPosition() {
@@ -54,14 +58,14 @@ public class PositionServiceImpi implements PositionService{
 		if (page==null||page<1||size==null||size<1) {
 			return null;
 		}
-		return dao.queryFilmPosition(page, size);
+		return dao.queryFilmPosition((page-1)*size,size);
 	}
 	@Override
 	public List<FilmPositionDto> queryFilmPositionByKey(Integer page, Integer size, String key) {
 		if (page==null||page<1||size==null||size<1) {
 			return null;
 		}
-		return dao.queryFilmPositionByKey(page, size, key);
+		return dao.queryFilmPositionByKey((page-1)*size,size, key);
 	}
 	@Override
 	public Long getPositionCountByKey(String key) {
@@ -78,7 +82,7 @@ public class PositionServiceImpi implements PositionService{
 		if (page==null||page<1||size==null||size<1) {
 			return null;
 		}
-		return dao.quaryposition(page, size, firmid);
+		return dao.quaryposition((page-1)*size,size, firmid);
 	}
 	@Override
 	public Long getPositionCountByFirmId(Integer firmid) {

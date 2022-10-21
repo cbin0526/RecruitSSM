@@ -53,7 +53,7 @@ var youdao_conv_id = 271546;
 				//应聘者
 				// 发起ajax请求
 				$.ajax({
-					url:"checklogin.co",
+					url:"checklogin.do",
 					data:{email:email,pwd:pwd},
 					dataType:"text",
 					success:function(msg){

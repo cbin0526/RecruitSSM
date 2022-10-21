@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.mvc.dao.FirmDao">
+
+    <insert id="addFirm" parameterType="firm">
+        INSERT INTO
+        `firm` (`firm_name`, `firm_pwd`, `firm_tel`, `firm_email`)
+        VALUES (#{firm_name},#{firm_pwd},#{firm_tel},#{firm_email})
+    </insert>
+
+    <update id="updateMyFirm" parameterType="firm">
+        UPDATE `firm`
+        set `firm_realname`=#{firm_realname}, `firm_logo`=#{firm_logo},`firm_type`=#{firm_type},`firm_birthday`=#{},`firm_creditcode`=#{},`firm_legalperson`=#{firm_legalperson},`firm_info`=#{firm_info},`firm_address`=#{firm_address}
+        where firm_id=#{firm_id}
+    </update>
+
+    <select id="queryfirmByEmailAndPwd" resultType="firm">
+        SELECT * FROM firm
+        WHERE firm_email = #{firm_email} AND firm_pwd = #{firm_pwd}
+    </select>
+
+    <select id="queryfirmByid" resultType="firm">
+        SELECT * FROM firm
+        WHERE firm_id = #{firm_id}
+    </select>
+
+</mapper>
