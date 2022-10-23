@@ -2,12 +2,9 @@ package com.etc.mvc.service;
 
 import java.util.List;
 
-import com.etc.mvc.dto.AllCountDto;
 import com.etc.mvc.dto.FilmPositionDto;
 import com.etc.mvc.dto.RecordPositionDto;
-import com.etc.mvc.entity.Customer;
 import com.etc.mvc.entity.Position;
-import com.etc.mvc.entity.Record;
 
 public interface PositionService {
 	/**
@@ -20,8 +17,8 @@ public interface PositionService {
 
 	/**
 	 * 分页查询工作岗位和公司信息
-	 * @param page当前页数
-	 * @param size每页显示条数
+	 * @param page 当前页数
+	 * @param size 每页显示条数
 	 * @return 	分页查询的结果
 	 */
 	List<FilmPositionDto> queryFilmPosition(Integer page, Integer size);
@@ -64,7 +61,7 @@ public interface PositionService {
 
 	/**
 	 * 查询该公司的工作岗位的总条数
-	 * @param key
+	 * @param firmid 关键字
 	 * @return
 	 */
 	Long getPositionCountByFirmId(Integer firmid);

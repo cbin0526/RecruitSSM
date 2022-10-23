@@ -1,11 +1,8 @@
 package com.etc.mvc.service.impl;
 
-import java.util.List;
-
 import com.etc.mvc.dao.FirmDao;
 import com.etc.mvc.dto.FilmPositionDto;
 import com.etc.mvc.entity.Firm;
-import com.etc.mvc.entity.Record;
 import com.etc.mvc.service.FirmService;
 
 public class FirmServiceImpl implements FirmService {

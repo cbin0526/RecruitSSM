@@ -3,6 +3,36 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etc.mvc.dao.PositionDao">
+
+    <sql id="filmPositionDtoQueryByKey">
+        <where>
+            <if test="p_name!=null">
+                or p_name like #{p_name}
+            </if>
+            <if test="p_type!=null">
+                or p_type like #{p_type}
+            </if>
+            <if test="p_salary!=null">
+                or p_salary like #{p_salary}
+            </if>
+            <if test="p_address!=null">
+                or p_address like #{p_address}
+            </if>
+            <if test="p_wexperience!=null">
+                or p_wexperience like #{p_wexperience}
+            </if>
+            <if test="firm_realname!=null">
+                or firm_realname like #{firm_realname}
+            </if>
+            <if test="firm_type!=null">
+                or firm_type like #{firm_type}
+            </if>
+            <if test="p_graduation!=null">
+                or p_graduation like #{p_graduation}
+            </if>
+        </where>
+    </sql>
+
     <select id="queryPosition" resultType="position">
         SELECT * from position limit #{param1},#{param2}
     </select>
@@ -22,5 +52,85 @@
         from position as p inner join firm as f where f.firm_id=p.p_firmid limit #{param1},#{param2}
     </select>
 
+    <select id="queryFilmPositionByKey" resultType="filmPositionDto" parameterType="filmPositionDto">
+        select
+        p.p_id,p.p_name,p.p_type,p.p_require,p.p_salary,p.p_welfare,p.p_address,p.p_info,p.p_graduation,p.p_wexperience,f.firm_realname,f.firm_type,f.firm_legalperson
+        from position as p
+            inner join firm as f
+        on f.firm_id=p.p_firmid
+        <include refid="filmPositionDtoQueryByKey"></include>
+        limit #{page},#{size}
+    </select>
+
+    <select id="getPositionCountByKey" parameterType="filmPositionDto" resultType="allCountDto">
+        select count(*) as allcount
+        from  position as p
+            inner join firm as f
+                on f.firm_id=p.p_firmid
+        <include refid="filmPositionDtoQueryByKey"></include>
+    </select>
+
+    <select id="quaryposition" resultType="position">
+        select * from position where p_firmid=#{param3} limit #{param1},#{param2}
+    </select>
+
+    <select id="getPositionCountByFirmId" resultType="allCountDto">
+        select count(*) as allcount from position where p_firmid=#{p_firmid}
+    </select>
+
+    <select id="getPositionDetailByPid" resultType="filmPositionDto">
+        select p.p_id, p.p_name,p.p_type,p.p_require,p.p_salary,p.p_welfare,p.p_address,p.p_info,p.p_graduation,p.p_wexperience,f.firm_realname,f.firm_type,f.firm_legalperson
+        from position as p inner join firm as f on f.firm_id=p.p_firmid where p_id=#{}
+    </select>
+
+    <select id="queryPositionById" resultType="filmPositionDto">
+        select * from position where p_id = #{p_id}
+    </select>
+
+    <update id="updatePosition" parameterType="filmPositionDto">
+        UPDATE position SET
+        p_name = #{p_name},
+        p_type=#{p_type},
+        p_require=#{p_require},
+        p_salary = #{p_salary},
+        p_welfare = #{p_welfare},
+        p_address = #{p_address},
+        p_info = #{p_info},
+        p_graduation=#{p_graduation},
+        p_tel=#{p_tel},
+        p_email=#{p_email},
+        p_wexperience=#{p_wexperience}
+        WHERE p_id = #{p_id};
+    </update>
+
+    <select id="CountRecordByPosition" resultType="allCountDto">
+        select count(*) as allcount from recordstatus where rs_positionid=#{rs_positionid}
+    </select>
+
+    <select id="getUserPositionByUserid" resultType="filmPositionDto">
+        SELECT * FROM position INNER join
+            (SELECT rs_positionid FROM record INNER JOIN recordstatus ON record.r_recordid = recordstatus.rs_recordid WHERE r_userid = #{param3}) AS rs
+                ON rs.rs_positionid = position.p_id LIMIT #{param1},#{param2}
+    </select>
+
+    <select id="queryRecordByPositionid" resultType="recordPositionDto">
+        SELECT rs_id,rs_recordid,rs_positionid,r_name,r_sex,r_graduation,r_workedyear,r_city,r_school,p_name,r_tel,r_email,rs_status
+        FROM (recordstatus INNER JOIN record ON recordstatus.rs_recordid=record.r_recordid)
+            INNER JOIN position ON recordstatus.rs_positionid= p_id
+        WHERE rs_positionid=#{param1} And rs_status=#{param4} limit #{param2},#{param3}
+    </select>
+
+    <select id="getAllcountByUserid" resultType="allCountDto">
+        SELECT count(*) as allcount FROM position INNER join (SELECT rs_positionid FROM record
+            INNER JOIN recordstatus ON record.r_recordid = recordstatus.rs_recordid WHERE r_userid = #{userid})
+            AS rs ON rs.rs_positionid = position.p_id
+    </select>
+
+    <select id="queryRecordBypid" resultType="recordPositionDto">
+        SELECT rs_id,rs_recordid,rs_positionid,r_name,r_sex,r_graduation,r_workedyear,r_city,r_school,p_name,r_tel,r_email,rs_status
+        FROM (recordstatus INNER JOIN record ON recordstatus.rs_recordid=record.r_recordid)
+            INNER JOIN position ON recordstatus.rs_positionid=position.p_id
+        WHERE rs_positionid=#{param1} limit #{param2},#{param3}
+    </select>
 
 </mapper>

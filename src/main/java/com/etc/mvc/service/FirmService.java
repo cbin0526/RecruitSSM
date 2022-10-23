@@ -1,12 +1,7 @@
 package com.etc.mvc.service;
 
-import java.util.List;
-
 import com.etc.mvc.dto.FilmPositionDto;
-import com.etc.mvc.entity.Customer;
 import com.etc.mvc.entity.Firm;
-import com.etc.mvc.entity.Position;
-import com.etc.mvc.entity.Record;
 
 public interface FirmService {
 
