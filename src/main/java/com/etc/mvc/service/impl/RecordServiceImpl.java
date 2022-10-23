@@ -1,5 +1,8 @@
 package com.etc.mvc.service.impl;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.etc.mvc.dao.RecordDao;
@@ -21,7 +24,8 @@ public class RecordServiceImpl implements RecordService{
 	@Override
 	public boolean addRecord(Record r, Integer userid) {
 		// TODO Auto-generated method stub
-		return dao.InsertRecord(r, userid);
+		r.setR_age(userid);
+		return dao.InsertRecord(r);
 	}
 
 	@Override
@@ -29,6 +33,13 @@ public class RecordServiceImpl implements RecordService{
 		if(r == null | r.getR_recordid() == null) {
 			return false;
 		}
+		//获取系统当前时间
+		Date date=new Date();
+		//将该时间转换指定格式的字符串
+		DateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//更新时间
+		String time=df.format(date);
+		r.setR_updatetime(time);
 		return dao.updateRecord(r);
 	}
 

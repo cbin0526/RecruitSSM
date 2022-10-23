@@ -13,7 +13,7 @@ public interface RecordDao {
 	 * @param r 简历
 	 * @return TRUE / FALSE
 	 */
-	boolean InsertRecord(Record r,Integer userid);
+	boolean InsertRecord(Record r);
 
 	/**
 	 * 根据简历ID删除简历

@@ -4,4 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etc.mvc.dao.RecordDao">
 
+    <insert id="InsertRecord" parameterType="record">
+        INSERT INTO record values(null,#{r_recordname},#{r_name},#{r_sex},#{r_tel},#{r_email},#{r_age},#{r_workedyear},#{r_photo},#{r_graduation},#{r_school}
+        ,#{r_graduateyear},#{r_professional},#{r_salary},#{r_position},#{r_city},#{r_skill},#{r_info},0,#{r_userid},#{r_updatetime})
+    </insert>
+
+    <delete id="deleteRecord" >
+        DELETE from record WHERE r_recordid=#{r_recordid}
+    </delete>
+
+    <update id="updateRecord" parameterType="record">
+        UPDATE record set r_recordname=#{r_recordname}, r_name=#{r_name},r_sex=#{r_sex}
+                          ,r_tel=#{r_tel},r_email=#{r_email},r_age=#{r_age}
+                        ,r_workedyear=#{r_workedyear},r_photo=#{r_photo},r_graduation=#{r_graduation}
+                        ,r_school=#{r_school},r_graduateyear=#{r_graduateyear},r_professional=#{r_professional}
+                        ,r_salary=#{r_salary},r_position=#{r_position},r_city=#{r_city}
+                        ,r_skill=#{r_skill},r_info=#{r_info}, r_updatetime=#{r_updatetime} WHERE r_recordid=#{r_recordid}
+    </update>
+
+    <select id="queryRecordAll" resultType="record">
+        select * from record where r_userid=#{r_userid}
+    </select>
+
+    <select id="queryOneRecordById" resultType="record">
+        select * from record where r_recordid=?
+    </select>
+
+    <select id="queryRecotdByPageAndSizeAndUserId" resultType="record">
+        select * from record  where r_userid=#{param3} order by r_updatetime DESC limit #{param1},#{param2}
+    </select>
+
+   <select id="getAllCountByUid" resultType="allCountDto">
+       select count(*) as allcount from record where r_userid=#{r_userid}
+   </select>
+
 </mapper>
