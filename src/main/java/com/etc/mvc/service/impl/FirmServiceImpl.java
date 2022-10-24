@@ -4,9 +4,13 @@ import com.etc.mvc.dao.FirmDao;
 import com.etc.mvc.dto.FilmPositionDto;
 import com.etc.mvc.entity.Firm;
 import com.etc.mvc.service.FirmService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FirmServiceImpl implements FirmService {
 
+	@Autowired
 	private FirmDao firmdao;
 
 	public FirmDao getFirmdao() {
@@ -52,10 +56,10 @@ public class FirmServiceImpl implements FirmService {
 			return false;
 		}
 
-		if("false".equals(firmdao.updateMyFirm(firm,firmid))){
+		if("false".equals(firmdao.updateMyFirm(firm))){
 			System.out.println("sql语句错误");
 		}
-		return firmdao.updateMyFirm(firm,firmid);
+		return firmdao.updateMyFirm(firm);
 
 	}
 
