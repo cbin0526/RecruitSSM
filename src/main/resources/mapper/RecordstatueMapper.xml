@@ -4,4 +4,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etc.mvc.dao.RecordstatusDao">
 
+    <insert id="SubmitRecord">
+        INSERT INTO recordstatus (recordstatus.rs_positionid,recordstatus.rs_recordid) VALUES (#{param1},#{param2})
+    </insert>
+
+    <select id="checkRecordIsSubmit" resultType="mySubmitCountDto">
+        SELECT count(*) as submitcount  FROM recordstatus INNER JOIN record ON record.r_recordid = recordstatus.rs_recordid
+        WHERE rs_positionid = #{param1} AND record.r_userid = #{param2}
+    </select>
+
+    <delete id="deleteRecordStatusByUserId" >
+        DELETE from recordstatus
+        WHERE rs_id = (select t.* FROM (select rs_id FROM record INNER JOIN recordstatus on rs_recordid = r_recordid
+        WHERE r_userid = #{param2} AND rs_positionid = #{param1} AND rs_status != 3) as t)
+    </delete>
+
+    <select id="queryRecordOnSubmit" resultType="recordPositionDto">
+        select * FROM
+        record left JOIN recordstatus
+            on rs_recordid = r_recordid
+        WHERE rs_positionid = #{param1} AND r_userid = #{param2} AND rs_status != 3
+    </select>
+
+
+    <update id="updateRecordPositionStatus" >
+        update recordstatus set rs_status=#{param2} where rs_id = #{param1}
+    </update>
 </mapper>
