@@ -44,5 +44,19 @@ public interface RecordService {
 
 	Long getAllCountByUid(Integer r_userid);
 
+	/**
+	 * 查询对应页数和条数的数据
+	 * @param page
+	 * @param size
+	 * @param userid
+	 * @return
+	 */
+	List<Record> queryRecotdByPageAndSizeAndUserId(Integer page,Integer size, Integer userid);
 
+	/**
+	 * 删除一个简历
+	 * @param r_recordid
+	 * @return
+	 */
+	boolean deleteRecord (Integer r_recordid);
 }

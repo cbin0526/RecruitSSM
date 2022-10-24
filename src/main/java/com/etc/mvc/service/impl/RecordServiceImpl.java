@@ -9,7 +9,9 @@ import com.etc.mvc.dao.RecordDao;
 import com.etc.mvc.dto.AllCountDto;
 import com.etc.mvc.entity.Record;
 import com.etc.mvc.service.RecordService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RecordServiceImpl implements RecordService{
 	RecordDao dao;
 
@@ -77,5 +79,34 @@ public class RecordServiceImpl implements RecordService{
 			return null;
 		}
 	}
-	
+
+	/**
+	 * 查询对应页数和条数的数据
+	 *
+	 * @param page
+	 * @param size
+	 * @param userid
+	 * @return
+	 */
+	@Override
+	public List<Record> queryRecotdByPageAndSizeAndUserId(Integer page, Integer size, Integer userid) {
+		if(page == null | size == null | userid == null){
+			return null;
+		}
+		return  dao.queryRecotdByPageAndSizeAndUserId(size*(page-1),size,userid);
+	}
+
+	/**
+	 * 删除一个简历
+	 *
+	 * @param r_recordid
+	 * @return
+	 */
+	@Override
+	public boolean deleteRecord(Integer r_recordid) {
+		if(r_recordid == null | r_recordid <= 0){
+			return false;
+		}
+		return dao.deleteRecord(r_recordid);
+	}
 }
