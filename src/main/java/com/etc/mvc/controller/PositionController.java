@@ -5,7 +5,6 @@ import com.etc.mvc.entity.Firm;
 import com.etc.mvc.entity.Position;
 import com.etc.mvc.service.PositionService;
 import com.google.gson.Gson;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
