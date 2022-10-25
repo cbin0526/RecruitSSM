@@ -38,8 +38,8 @@ $(document).ready(function(){
 function myajax(page,size,firm_id){
 	$.ajax({
 		type:"GET",
-		url:"DoPosition",
-		data:{flag:"queryfirmposition",page:page,size:size,firm_id:firm_id},
+		url:"queryfirmposition.do",
+		data:{page:page,size:size,firm_id:firm_id},
 		dataType: "json",
 		success: function(msg){
 			//alert(msg.msgobject[1].p_address);

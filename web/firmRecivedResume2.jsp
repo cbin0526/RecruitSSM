@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-
 <!DOCTYPE HTML>
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
@@ -215,7 +214,7 @@ function showrecordByid(recordid){
           <input type="hidden" value="0" name="filterStatus" id="filterStatus">
      <input type="hidden" value="" name="positionId" id="positionId">
  </div><!-- end .filter_options -->	
- 
+
 <c:forEach items="${requestScope.list}" var="RecordPositionDto">
  	<ul class="reset resumeLists"><li data-id="" class="onlineResume">
                 

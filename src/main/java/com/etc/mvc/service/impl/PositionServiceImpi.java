@@ -136,6 +136,7 @@ public class PositionServiceImpi implements PositionService{
 			System.out.println("Error:firmid/recordid/positionid==null");
 			return null;
 		}else{
+			page = (page - 1) * size;
 			return dao.queryRecordByPositionid(positionid, page, size,status);
 		}
 	}
@@ -155,6 +156,7 @@ public class PositionServiceImpi implements PositionService{
 		if (userid==null|userid<0) {
 			return null;
 		}
+		page = (page -1) * size;
 		return dao.getUserPositionByUserid(page ,size,userid);
 	}
 	@Override
@@ -181,6 +183,7 @@ public class PositionServiceImpi implements PositionService{
 	}
 	@Override
 	public List<RecordPositionDto> queryRecordBypid(Integer positionid, Integer page, Integer size) {
+		page = (page-1) * size;
 		List<RecordPositionDto> list =dao.queryRecordBypid(positionid, page, size);
 		if(list.size()==0 | list==null) {
 			System.out.println("当前岗位没有人投递简历");

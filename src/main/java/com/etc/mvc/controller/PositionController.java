@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -578,7 +579,7 @@ public class PositionController {
         page=page<=0?1:page;
         page=page>maxpage?maxpage:page;
         //获取当前对应的page和size数据
-        List<RecordPositionDto> list=null;
+        List<RecordPositionDto> list= new ArrayList<>();
         if(status==null||status==4){
             list =service.queryRecordBypid(positionid, maxpage, size);
 

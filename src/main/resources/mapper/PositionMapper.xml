@@ -115,8 +115,11 @@
     <select id="queryRecordBypid" resultType="recordPositionDto">
         SELECT rs_id,rs_recordid,rs_positionid,r_name,r_sex,r_graduation,r_workedyear,r_city,r_school,p_name,r_tel,r_email,rs_status
         FROM (recordstatus INNER JOIN record ON recordstatus.rs_recordid=record.r_recordid)
-            INNER JOIN position ON recordstatus.rs_positionid=position.p_id
+            INNER JOIN `position` ON recordstatus.rs_positionid=`position`.p_id
         WHERE rs_positionid=#{param1} limit #{param2},#{param3}
     </select>
 
+    <delete id="deletePosition" >
+        delete from `position` where p_id=#{p_id}
+    </delete>
 </mapper>

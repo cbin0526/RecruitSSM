@@ -1,6 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE HTML>
 <html xmlns:wb="http://open.weibo.com/wb"><head>
 </script><script type="text/javascript" async="" src="style/js/conversion.js"></script><script src="style/js/allmobilize.min.js" charset="utf-8" id="allmobilize"></script><style type="text/css"></style>
@@ -73,7 +74,12 @@ console.log(1);
 	                <div class="c_detail" style="float:left;height: 2px;width: 650px;" >
 	                	<div style="background-color:#fff;" class="c_logo">
 								<div >
-									<img id="MYIMG" width="190" height="190" src="uploadimg/${sessionScope.loginfirm.firm_logo}" >
+									<c:if test="${sessionScope.loginfirm.firm_logo==''}">
+										<img width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
+									</c:if>
+									<c:if test="${loginfirm.firm_logo!=''}">
+										<img id="MYIMG" width="190" height="190" src="uploadimg/${sessionScope.loginfirm.firm_logo}" >
+									</c:if>
 									<a>点击图片更换头像</a>
 									<input style="left: 0px;" type="file" id="uploadimg" accept="image/*" value="" title="支持jpg、jpeg、gif、png格式，文件小于5M" onchange="showUpload(this)">
 								</div>

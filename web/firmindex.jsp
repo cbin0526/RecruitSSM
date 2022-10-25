@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html xmlns:wb="http://open.weibo.com/wb"><head>
 </script><script type="text/javascript" async="" src="style/js/conversion.js"></script><script src="style/js/allmobilize.min.js" charset="utf-8" id="allmobilize"></script><style type="text/css"></style>
@@ -53,7 +53,7 @@ function myajax(page,size,firm_id){
                 '<span><em class="c7">最低学历：'+msg.msgobject[i].p_graduation+'</span>&nbsp;&nbsp;&nbsp;&nbsp;'+
                 '<br><span><em class="c7">职位福利：'+msg.msgobject[i].p_welfare+'</span> </div><br>'+
                 '<p style="text-align: center"><a href="getPositionById.do?p_id='+msg.msgobject[i].p_id+'&p_firmid='+${loginfirm.firm_id}+'">查看编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+
-                '<a href="delPositionById.do&p_id='+msg.msgobject[i].p_id+'">删除岗位</a></p>';
+                '<a href="delPositionById.do?p_id='+msg.msgobject[i].p_id+'">删除岗位</a></p>';
                 		
 			}
 			 $("#position").html(str);
@@ -116,13 +116,24 @@ function jump(positionid){
 		            <div class="c_breakline"></div>             
 	                <div class="c_detail">
 	                	<div style="background-color:#fff;" class="c_logo">
-		                		<img width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
+							<c:if test="${sessionScope.loginfirm.firm_logo==''}">
+								<img width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
+							</c:if>
+							<c:if test="${loginfirm.firm_logo!=''}">
+								<img id="MYIMG" width="190" height="190" src="uploadimg/${sessionScope.loginfirm.firm_logo}" >
+							</c:if>
 	                        </a>
 		                </div>
-		                
+
 		                <div class="c_logo" style="background-color:#fff;">
 			                <div id="logoShow">
-			                	<img src="style/images/logo_default.png" width="190" height="190" alt="公司logo" />
+								<c:if test="${sessionScope.loginfirm.firm_logo==''}">
+									<img width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
+								</c:if>
+								<c:if test="${loginfirm.firm_logo!=''}">
+									<img id="MYIMG" width="190" height="190" src="uploadimg/${sessionScope.loginfirm.firm_logo}" >
+								</c:if>
+								</a>
 		                    </div>
 			            </div>
 		                <span class="error" id="logo_error" style="display:none;"></span>
