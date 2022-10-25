@@ -4,34 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etc.mvc.dao.PositionDao">
 
-    <sql id="filmPositionDtoQueryByKey">
-        <where>
-            <if test="p_name!=null">
-                or p_name like #{p_name}
-            </if>
-            <if test="p_type!=null">
-                or p_type like #{p_type}
-            </if>
-            <if test="p_salary!=null">
-                or p_salary like #{p_salary}
-            </if>
-            <if test="p_address!=null">
-                or p_address like #{p_address}
-            </if>
-            <if test="p_wexperience!=null">
-                or p_wexperience like #{p_wexperience}
-            </if>
-            <if test="firm_realname!=null">
-                or firm_realname like #{firm_realname}
-            </if>
-            <if test="firm_type!=null">
-                or firm_type like #{firm_type}
-            </if>
-            <if test="p_graduation!=null">
-                or p_graduation like #{p_graduation}
-            </if>
-        </where>
-    </sql>
 
     <select id="queryPosition" resultType="position">
         SELECT * from position limit #{param1},#{param2}
@@ -52,22 +24,36 @@
         from position as p inner join firm as f where f.firm_id=p.p_firmid limit #{param1},#{param2}
     </select>
 
-    <select id="queryFilmPositionByKey" resultType="filmPositionDto" parameterType="filmPositionDto">
+    <select id="queryFilmPositionByKey" resultType="filmPositionDto" >
         select
         p.p_id,p.p_name,p.p_type,p.p_require,p.p_salary,p.p_welfare,p.p_address,p.p_info,p.p_graduation,p.p_wexperience,f.firm_realname,f.firm_type,f.firm_legalperson
         from position as p
             inner join firm as f
         on f.firm_id=p.p_firmid
-        <include refid="filmPositionDtoQueryByKey"></include>
-        limit #{page},#{size}
+        where p_name like #{param3}
+           or p_type like #{param3}
+           or p_salary like #{param3}
+           or p_address like #{param3}
+           or p_wexperience like #{param3}
+           or firm_realname like #{param3}
+           or firm_type like #{param3}
+           or p_graduation like #{param3}
+        limit #{param1},#{param2}
     </select>
 
-    <select id="getPositionCountByKey" parameterType="filmPositionDto" resultType="allCountDto">
+    <select id="getPositionCountByKey"  resultType="allCountDto">
         select count(*) as allcount
         from  position as p
             inner join firm as f
                 on f.firm_id=p.p_firmid
-        <include refid="filmPositionDtoQueryByKey"></include>
+        where p_name like        #{param1}
+           or p_type like        #{param1}
+           or p_salary like      #{param1}
+           or p_address like     #{param1}
+           or p_wexperience like #{param1}
+           or firm_realname like #{param1}
+           or firm_type like     #{param1}
+           or p_graduation like  #{param1}
     </select>
 
     <select id="quaryposition" resultType="position">

@@ -1280,7 +1280,7 @@
 		});
 		function check(){
 			 $.ajax({
-				 url:"getSession1",    //请求的地址
+				 url:"getSession1.do",    //请求的地址
 				 type:"GET",
 				 dataType:"json",
 

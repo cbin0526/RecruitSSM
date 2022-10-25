@@ -334,7 +334,7 @@ function myajax(page,size){
 	  $.ajax({
 		 url:"getRecordByUidForAjax.do",    //请求的地址
 		 type:"GET",
-		 data:{page:page,size:size,flag:"getRecordByUidForAjax"}, //发送到servlet端的参数 
+		 data:{page:page,size:size}, //发送到servlet端的参数
 		 dataType:"json",
 		 error : function() {
 			 console.log(1);

@@ -9,10 +9,12 @@ import com.etc.mvc.dao.RecordDao;
 import com.etc.mvc.dto.AllCountDto;
 import com.etc.mvc.entity.Record;
 import com.etc.mvc.service.RecordService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RecordServiceImpl implements RecordService{
+	@Autowired
 	RecordDao dao;
 
 	public RecordDao getDao() {

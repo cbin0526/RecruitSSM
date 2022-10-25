@@ -63,10 +63,12 @@ public class PositionServiceImpi implements PositionService{
 		if (page==null||page<1||size==null||size<1) {
 			return null;
 		}
+		key = "%"+key+"%";
 		return dao.queryFilmPositionByKey((page-1)*size,size, key);
 	}
 	@Override
 	public Long getPositionCountByKey(String key) {
+		key = "%"+key+"%";
 		AllCountDto dto=dao.getPositionCountByKey(key);
 		if (dto!=null) {
 			return dto.getAllcount();
