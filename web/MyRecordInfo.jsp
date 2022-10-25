@@ -55,7 +55,7 @@ var youdao_conv_id = 271546;
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -94,7 +94,7 @@ var youdao_conv_id = 271546;
 						<!--end .basicShow-->
 
 						<div class="basicEdit">
-							<form id="profileForm" action="DoRecord" method="post">
+							<form id="profileForm" action="updateRecordById.do" method="post">
 							
 							 <input type="hidden" name="flag" value="updateRecordById">
 							 <input type="hidden" id="MyRecordId" name="recordid" value="${MyRecord.r_recordid}">
@@ -417,7 +417,7 @@ var youdao_conv_id = 271546;
 									formData.append("uploadimg", fileData);
 									let img = ""
 									$.ajax({
-										url :"DoUploadImg",
+										url :"uploadfile.do",
 										type:"POST",
 										data: formData,
 										processData: false,
@@ -697,7 +697,7 @@ var youdao_conv_id = 271546;
 		}
 		function check(){
 			 $.ajax({
-				 url:"DoCustomer",    //请求的地址
+				 url:"getSession1.do",    //请求的地址
 				 type:"GET",
 				 data:{flag:"getSession1"}, //发送到servlet端的参数 
 				 dataType:"json",
@@ -719,7 +719,7 @@ var youdao_conv_id = 271546;
 			
 			if(confirm('你确定要注销当前登录状态吗？')){
 				
-				location.href="DoCustomer?flag=loginout";
+				location.href="loginout.do";
 				
 			}
 			

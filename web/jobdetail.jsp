@@ -47,7 +47,7 @@ var youdao_conv_id = 271546;
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -631,7 +631,7 @@ $(function(){
 <script >
 function check(){
 	 $.ajax({
-		 url:"DoCustomer",    //请求的地址
+		 url:"getSession1.do",    //请求的地址
 		 type:"GET",
 		 data:{flag:"getSession1"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -653,7 +653,7 @@ function loginout(){
 	
 	if(confirm('你确定要注销当前登录状态吗？')){
 		
-		location.href="DoCustomer?flag=loginout";
+		location.href="loginout.do";
 		
 	}
 	
@@ -662,7 +662,7 @@ function jobdetail() {
 	//location.href="DoPosition?flag=GetFirmPositionDetailByPid";
 	let p_id = '${p_id}';
 	 $.ajax({
-		 url:"DoPosition",    //请求的地址
+		 url:"GetFirmPositionDetailByPid.do",    //请求的地址
 		 type:"GET",
 		 data:{flag:"GetFirmPositionDetailByPid",p_id:p_id}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -711,7 +711,7 @@ function jobdetail() {
 				"						</div>\r\n" + 
 				"                    </div>\r\n" + 
 				"                                        <dd>\r\n" + 
-				"                                        	                    			                        	<a href=\'DoSubmitRecord?flag=selectRecord&p_id="+msg.msgobject.p_id+"\' title=\'登录\' class=\'inline btn fr btn_apply\'>投个简历</a>\r\n" + 
+				"                                        	                    			                        	<a href=\'selectRecord.do?p_id="+msg.msgobject.p_id+"\' title=\'登录\' class=\'inline btn fr btn_apply\'>投个简历</a>\r\n" +
 				"	                        	                   		                	                </dd>\r\n" + 
 				"                </dl>\r\n" + 
 				"                                <div id=\'weibolist\'></div>";

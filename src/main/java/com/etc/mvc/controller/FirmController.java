@@ -120,7 +120,7 @@ public class FirmController {
             response.setContentType("text/html;charset=utf-8");
             if (updateflag) {
                 //
-                out.print("<script>alert('公司信息完善成功');location.href='DoFirm?flag=getFirmByLoginfirm'</script>");
+                out.print("<script>alert('公司信息完善成功');location.href='getFirmByLoginfirm.do'</script>");
 
             } else {
                 //

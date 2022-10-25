@@ -297,7 +297,7 @@ public class PositionController {
         //调用业务逻辑
         boolean updatePositionflag = service.updatePosition(position);
         if(updatePositionflag) {
-            out.print("<script>alert('发布修改成功');location.href='DoPosition?flag=getPositionById&p_id="+p_id+"';</script>");
+            out.print("<script>alert('发布修改成功');location.href='getPositionById.do&p_id="+p_id+"';</script>");
             out.flush();
             out.close();
         }else {
@@ -518,7 +518,7 @@ public class PositionController {
             //获取指定的输出对象
             PrintWriter pw=response.getWriter();
             if(updateflag) {
-                pw.print("<script>alert('操作成功');location.href='DoPosition?flag=getRecordByPositionId&positionid="+positionid+"';</script>");
+                pw.print("<script>alert('操作成功');location.href='getRecordByPositionId.do?positionid="+positionid+"';</script>");
             }else {
                 pw.print("<script>alert('操作失败，请重新操作，或联系管理员');history.go(-1);</script>");
             }

@@ -38,7 +38,7 @@ $(document).ready(function(){
 function myajax(page,size,firm_id){
 	$.ajax({
 		type:"GET",
-		url:"DoPosition",
+		url:"queryfirmposition.do",
 		data:{flag:"queryfirmposition",page:page,size:size,firm_id:firm_id},
 		dataType: "json",
 		success: function(msg){
@@ -52,8 +52,8 @@ function myajax(page,size,firm_id){
                 
                 '<span><em class="c7">最低学历：'+msg.msgobject[i].p_graduation+'</span>&nbsp;&nbsp;&nbsp;&nbsp;'+
                 '<br><span><em class="c7">职位福利：'+msg.msgobject[i].p_welfare+'</span> </div><br>'+
-                '<p style="text-align: center"><a href="DoPosition?flag=getPositionById&p_id='+msg.msgobject[i].p_id+'&p_firmid='+${loginfirm.firm_id}+'">查看编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+
-                '<a href="DoPosition?flag=delPositionById&p_id='+msg.msgobject[i].p_id+'">删除岗位</a></p>';
+                '<p style="text-align: center"><a href="getPositionById.do?p_id='+msg.msgobject[i].p_id+'&p_firmid='+${loginfirm.firm_id}+'">查看编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+
+                '<a href="delPositionById.do&p_id='+msg.msgobject[i].p_id+'">删除岗位</a></p>';
                 		
 			}
 			 $("#position").html(str);
@@ -69,7 +69,7 @@ function myajax(page,size,firm_id){
 <script>
 function jump(positionid){
 	//location.href="firmRecivedResume.jsp?positionid="+positionid;
-	location.href="DoPosition?flag=getRecordByPositionId&positionid="+positionid+"&status=4";
+	location.href="getRecordByPositionId.do?positionid="+positionid+"&status=4";
 }
 </script>
 <script src="style/js/conv.js" type="text/javascript"></script>
@@ -96,7 +96,7 @@ function jump(positionid){
             	</dt>
                     <dd><a href="positions.html">我发布的职位</a></dd>
                     <dd><a href="editfirm.jsp">帐号设置</a></dd>
-                    <dd class="logout"><a rel="nofollow" href="DoFirm?flag=firmout">退出</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="firmout.do">退出</a></dd>
             	</dl>
           </div>
     </div>

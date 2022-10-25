@@ -27,7 +27,7 @@
     </select>
 
     <select id="queryOneRecordById" resultType="record">
-        select * from record where r_recordid=?
+        select * from record where r_recordid=#{recordid}
     </select>
 
     <select id="queryRecotdByPageAndSizeAndUserId" resultType="record">

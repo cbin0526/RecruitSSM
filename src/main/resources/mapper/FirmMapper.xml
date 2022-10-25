@@ -12,13 +12,14 @@
 
     <update id="updateMyFirm" parameterType="firm">
         UPDATE `firm`
-        set `firm_realname`=#{firm_realname}, `firm_logo`=#{firm_logo},`firm_type`=#{firm_type},`firm_birthday`=#{},`firm_creditcode`=#{},`firm_legalperson`=#{firm_legalperson},`firm_info`=#{firm_info},`firm_address`=#{firm_address}
+        set `firm_realname`=#{firm_realname}, `firm_logo`=#{firm_logo},`firm_type`=#{firm_type},`firm_birthday`=#{firm_birthday}
+          ,`firm_creditcode`=#{firm_creditcode},`firm_legalperson`=#{firm_legalperson},`firm_info`=#{firm_info},`firm_address`=#{firm_address}
         where firm_id=#{firm_id}
     </update>
 
     <select id="queryfirmByEmailAndPwd" resultType="firm">
         SELECT * FROM firm
-        WHERE firm_email = #{firm_email} AND firm_pwd = #{firm_pwd}
+        WHERE firm_email = #{param1} AND firm_pwd = #{param2}
     </select>
 
     <select id="queryfirmByid" resultType="firm">

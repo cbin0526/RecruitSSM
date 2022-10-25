@@ -10,22 +10,13 @@ import org.springframework.stereotype.Service;
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
-	private CustomerDao dao;
-
-	public CustomerDao getDao() {
-		return dao;
-	}
-
-	public void setDao(CustomerDao dao) {
-		this.dao = dao;
-	}
-
+	private CustomerDao customerDao;
 	@Override
 	public boolean RegisterCustomer(Customer customer) {
 		if(customer == null | customer.getU_email() == null | customer.getU_username() == null | customer.getU_userpwd() == null | customer.getU_tel() == null) {
 			return false;
 		}
-		return dao.insertCustomer(customer);
+		return customerDao.insertCustomer(customer);
 	}
 
 
@@ -37,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 			return null;
 		}
 
-		return dao.queryCustomerByEmailAndPwd(email, pwd);
+		return customerDao.queryCustomerByEmailAndPwd(email, pwd);
 	}
 
 
@@ -47,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 		if(c == null | c.getU_email() == null | c.getU_username() == null | c.getU_tel() == null) {
 			return false;
 		}
-		return dao.updateCustomer(c);
+		return customerDao.updateCustomer(c);
 	}
 
 }

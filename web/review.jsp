@@ -48,7 +48,7 @@ $(document).ready(function(){
 function myajax(page,size,userid){	
 
 $.ajax({
-	url:"DoPosition",
+	url:"getpositionByuseridandajax.do",
 	type:"GET",
 	data:{flag:"getpositionByuseridandajax",page:page,size:size,userid:userid},
 	dataType: "json",
@@ -57,7 +57,7 @@ $.ajax({
 		console.log(msg);
 		for(let i=0;i < msg.msgobject.length;i++){
 		str = str+'<li class="odd clearfix"><div  align="" style="border:1px solid #019875 ;width:600px;margin:0 auto;"><div class="mb10" align="center">'+
-         '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DoPosition?flag=GetFirmPositionDetailByPid&p_id=${pageScope.firmposition.p_id}"  title="前端开发" target="_blank">'+
+         '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="GetFirmPositionDetailByPid.do?p_id=${pageScope.firmposition.p_id}"  title="前端开发" target="_blank">'+
          ''+msg.msgobject[i].p_name+'</a> &nbsp;'+
          '<span class="c9">'+msg.msgobject[i].p_address+'</span></div>'+
         '&nbsp;&nbsp;&nbsp;&nbsp;<span><em class="c7">月薪：</em>'+msg.msgobject[i].p_salary+'&nbsp;</span>'+
@@ -82,7 +82,7 @@ $.ajax({
 		
 		function check(){
 			 $.ajax({
-				 url:"DoCustomer",    //请求的地址
+				 url:"getSession1.do",    //请求的地址
 				 type:"GET",
 				 data:{flag:"getSession1"}, //发送到servlet端的参数 
 				 dataType:"json",
@@ -104,7 +104,7 @@ $.ajax({
 			
 			if(confirm('你确定要注销当前登录状态吗？')){
 				
-				location.href="DoCustomer?flag=loginout";
+				location.href="loginout.do";
 				
 			}
 			
@@ -124,7 +124,7 @@ $.ajax({
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -491,14 +491,14 @@ function mydelete(op){
 	
 	if(confirm('你确定要删除这个简历吗？')){		
 		if(confirm('删除之后不能恢复，你确定要删除吗？')){
-			location.href="DoRecord?flag=deleteRecordByRid&r_recordid="+op;	
+			location.href="deleteRecordByRid.do?r_recordid="+op;
 		}
 		
 	}
 }
 function check(){
 	$.ajax({
-		 url:"DoCustomer",    //请求的地址
+		 url:"getSession2.do",    //请求的地址
 		 type:"GET",
 		 data:{flag:"getSession2"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -513,7 +513,7 @@ function check(){
 }
 function check1(){
 	 $.ajax({
-		 url:"DoCustomer",    //请求的地址
+		 url:"getSession1.do",    //请求的地址
 		 type:"GET",
 		 data:{flag:"getSession1"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -537,7 +537,7 @@ function loginout(){
 	
 	if(confirm('你确定要注销当前登录状态吗？')){
 		
-		location.href="DoCustomer?flag=loginout";
+		location.href="loginout.do";
 		
 	}
 	

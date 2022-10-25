@@ -74,9 +74,9 @@ var youdao_conv_id = 271546;
 			}else if(type == 1){
 				//招聘者
 				$.ajax({
-					url:"DoFirm",
+					url:"loginfirm.do",
 					type:"GET",
-					data:{flag:"loginfirm",firm_email:email,firm_pwd:pwd},
+					data:{firm_email:email,firm_pwd:pwd},
 					dataType:"text",
 					success:function(msg){
 						if(msg==0){

@@ -80,7 +80,7 @@
 
     <select id="getPositionDetailByPid" resultType="filmPositionDto">
         select p.p_id, p.p_name,p.p_type,p.p_require,p.p_salary,p.p_welfare,p.p_address,p.p_info,p.p_graduation,p.p_wexperience,f.firm_realname,f.firm_type,f.firm_legalperson
-        from position as p inner join firm as f on f.firm_id=p.p_firmid where p_id=#{}
+        from position as p inner join firm as f on f.firm_id=p.p_firmid where p_id=#{p_id}
     </select>
 
     <select id="queryPositionById" resultType="filmPositionDto">

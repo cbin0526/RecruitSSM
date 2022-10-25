@@ -48,7 +48,7 @@ var youdao_conv_id = 271546;
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -332,7 +332,7 @@ $(function(){
 function myajax(page,size){
 	
 	  $.ajax({
-		 url:"DoRecord",    //请求的地址
+		 url:"getRecordByUidForAjax.do",    //请求的地址
 		 type:"GET",
 		 data:{page:page,size:size,flag:"getRecordByUidForAjax"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -445,7 +445,7 @@ function mydelete(op){
 	
 	if(confirm('你确定要删除这个简历吗？')){		
 		if(confirm('删除之后不能恢复，你确定要删除吗？')){
-			location.href="DoRecord?flag=deleteRecordByRid&r_recordid="+op;	
+			location.href="deleteRecordByRid.do?r_recordid="+op;
 		}
 		
 	}
@@ -465,7 +465,7 @@ function mydelete(op){
 			alert("请选择要投递的简历")
 		}else{
 			$.ajax({
-				url:"DoSubmitRecord",
+				url:"SubmitRecord.do",
 				data:{flag:"SubmitRecord",r_recordid:r_recordid,p_id:p_id,u_userid:u_userid},
 				dataType:"text",
 				success:function(msg){
@@ -490,7 +490,7 @@ function checkRrcord(){
 	//获取用户id
 	let u_userid = '${logincustomer.u_userid}';
 	$.ajax({
-		url:"DoSubmitRecord",
+		url:"checkRecord.do",
 		data:{flag:"checkRecord",p_id:p_id,u_userid:u_userid},
 		dataType:"text",
 		success:function(msg){
@@ -506,7 +506,7 @@ function showSubmitRrcord(){
 	//获取用户id
 	let u_userid = '${logincustomer.u_userid}';
 	$.ajax({
-		url:"DoSubmitRecord",
+		url:"showMySubmit.do",
 		data:{flag:"showMySubmit",p_id:p_id,u_userid:u_userid},
 		dataType:"json",
 		success:function(msg){
@@ -550,7 +550,7 @@ function showSubmitRrcord(){
 			//获取用户id
 			let u_userid = '${logincustomer.u_userid}';
 			$.ajax({
-				url:"DoSubmitRecord",
+				url:"removeMySubmit.do",
 				data:{flag:"removeMySubmit",p_id:p_id,u_userid:u_userid},
 				dataType:"text",
 				success:function(msg){
@@ -570,7 +570,7 @@ function showSubmitRrcord(){
 		
 		function check(){
 			 $.ajax({
-				 url:"DoCustomer",    //请求的地址
+				 url:"getSession1.do",    //请求的地址
 				 type:"GET",
 				 data:{flag:"getSession1"}, //发送到servlet端的参数 
 				 dataType:"json",
@@ -592,7 +592,7 @@ function showSubmitRrcord(){
 			
 			if(confirm('你确定要注销当前登录状态吗？')){
 				
-				location.href="DoCustomer?flag=loginout";
+				location.href="loginout.do";
 				
 			}
 			

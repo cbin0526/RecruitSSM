@@ -53,7 +53,7 @@ $(document).ready(function(){
 			if(page==(i+1)){
 				str=str+"第"+(i+1)+"页&nbsp;&nbsp;&nbsp;&nbsp;"
 			}else{
-				str=str+"<a href='DoPosition?flag=ForGetFirmPositionByKey&key=${requestScope.key}&size=7&page="+(i+1)+"'>第"+(i+1)+"页</a>&nbsp;&nbsp;"
+				str=str+"<a href='ForGetFirmPositionByKey.do?key=${requestScope.key}&size=7&page="+(i+1)+"'>第"+(i+1)+"页</a>&nbsp;&nbsp;"
 			}
 		}
 		 $("#mydiv").html(str); 
@@ -75,7 +75,7 @@ $(document).ready(function(){
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -178,7 +178,7 @@ $(document).ready(function(){
         
         <div class="content">
         	<div id="search_box">
-		<form  action="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7" method="post">
+		<form  action="ForGetFirmPositionByKey.do?page=1&siez=7" method="post">
         <ul id="searchType">
         	        	<li data-searchtype="1" class="type_selected">职位</li>
         	<li data-searchtype="4">公司</li>
@@ -198,53 +198,53 @@ $(document).ready(function(){
 <script type="text/javascript" src="style/js/search.min.js"></script>
 <dl class="hotSearch">
 	<dt>热门搜索：</dt>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=Java">Java</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=PHP">PHP</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=Android">Android</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=iOS">iOS</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=前端">前端</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=产品经理">产品经理</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=UI">UI</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=运营">运营</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=BD">BD</a></dd>
-	<dd><a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=实习">实习</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=Java">Java</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=PHP">PHP</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=Android">Android</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=iOS">iOS</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=前端">前端</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=产品经理">产品经理</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=UI">UI</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=运营">运营</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=BD">BD</a></dd>
+	<dd><a href="ForGetFirmPositionByKey.do?page=1&siez=7&key=实习">实习</a></dd>
 </dl>			<div class="breakline"></div>
             <dl class="workplace" id="workplaceSelect">
                 <dt class="fl">工作地点：</dt>
                	               	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=福建" class="current">福建省</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=福建" class="current">福建省</a>
                 	                	|
                 	               	</dd>
                	               	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=厦门" >厦门市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=厦门" >厦门市</a>
                 	                	|
                 	               	</dd>
                	         	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=福州" >福州市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=福州" >福州市</a>
                 	                	|
                 	               	</dd>
                 	                 	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=三明" >三明市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=三明" >三明市</a>
                 	                	|
                 	               	</dd>
                 	               	     	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=龙岩" >龙岩市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=龙岩" >龙岩市</a>
                 	                	|
                 	               	</dd>
                 	               	     	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=泉州" >泉州市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=泉州" >泉州市</a>
                 	                	|
                 	               	</dd>
                 	               	     	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=莆田" >莆田市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=莆田" >莆田市</a>
                 	                	|
                 	               	</dd>
                 	               	     	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=南平" >南平市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=南平" >南平市</a>
                 	                	|
                 	               	</dd>
                 	               	     	<dd >
-                	<a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7&key=宁德" >宁德市</a> 
+                	<a href="ForGetFirmPositionByKey.do?flag=ForGetFirmPositionByKey&page=1&siez=7&key=宁德" >宁德市</a>
                 	                	|
                 	               	</dd>
              
@@ -261,7 +261,7 @@ $(document).ready(function(){
 	                    		    <li class="odd clearfix">
 			                		<div class="hot_pos_l">
 			                        <div class="mb10">
-			                            <a href="DoPosition?flag=GetFirmPositionDetailByid&p_id=${pageScope.firmposition.p_id}"  title="前端开发" target="_blank">${pageScope.firmposition.p_name}</a> 
+			                            <a href="GetFirmPositionDetailByid.do?flag=GetFirmPositionDetailByid&p_id=${pageScope.firmposition.p_id}"  title="前端开发" target="_blank">${pageScope.firmposition.p_name}</a>
 			                            &nbsp;
 			                            <span class="c9">${pageScope.firmposition.p_address}</span>
 			                            			                        </div>
@@ -275,7 +275,7 @@ $(document).ready(function(){
 			                    </div> 
 						        <div class="hot_pos_r">
 			                        <div class="apply">
-			                        <a href="DoSubmitRecord?flag=selectRecord&p_id=${pageScope.firmposition.p_id}" target="_blank">投个简历</a>
+			                        <a href="selectRecord.do?p_id=${pageScope.firmposition.p_id}" target="_blank">投个简历</a>
 			                        				                        </div>
 			                        <div class="mb10"><a href="h/c/1712.html" title="紫色医疗" target="_blank">${pageScope.firmposition.firm_realname}</a></div>
 			      
@@ -286,12 +286,12 @@ $(document).ready(function(){
 			                 </li>
 			                 </c:forEach>
 		<div align="center"  heigh="50px">
-      <a href="DoPosition?flag=ForGetFirmPositionByKey&page=1&size=7&key=${requestScope.key}">首页</a>&nbsp;&nbsp;
-      <a href="DoPosition?flag=ForGetFirmPositionByKey&page=${requestScope.page-1}&size=7&key=${requestScope.key}">上一页</a>&nbsp;&nbsp;
+      <a href="ForGetFirmPositionByKey.do?page=1&size=7&key=${requestScope.key}">首页</a>&nbsp;&nbsp;
+      <a href="ForGetFirmPositionByKey.do?page=${requestScope.page-1}&size=7&key=${requestScope.key}">上一页</a>&nbsp;&nbsp;
       <span  id="mydiv" style="weigth:150px">
 		</span>
-      <a href="DoPosition?flag=ForGetFirmPositionByKey&page=${requestScope.page+1}&size=7&key=${requestScope.key}">下一页</a>&nbsp;&nbsp;
-      <a href="DoPosition?flag=ForGetFirmPositionByKey&page=${requestScope.maxpage}&size=7&key=${requestScope.key}">尾页</a>
+      <a href="ForGetFirmPositionByKey.do?page=${requestScope.page+1}&size=7&key=${requestScope.key}">下一页</a>&nbsp;&nbsp;
+      <a href="ForGetFirmPositionByKey.do?page=${requestScope.maxpage}&size=7&key=${requestScope.key}">尾页</a>
       </div>                  
  
 		
@@ -412,7 +412,7 @@ function editForm(inputId,inputValue){
 }
 function check(){
 $.ajax({
-	 url:"DoCustomer",    //请求的地址
+	 url:"getSession1.do",    //请求的地址
 	 type:"GET",
 	 data:{flag:"getSession1"}, //发送到servlet端的参数 
 	 dataType:"json",
@@ -434,7 +434,7 @@ function loginout(){
 
 if(confirm('你确定要注销当前登录状态吗？')){
 	
-	location.href="DoCustomer?flag=loginout";
+	location.href="loginout.do";
 	
 }
 

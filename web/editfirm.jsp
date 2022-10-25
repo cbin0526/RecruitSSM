@@ -54,7 +54,7 @@ console.log(1);
             	</dt>
                     <dd><a href="positions.html">我发布的职位</a></dd>
                     <dd><a href="editfirm.jsp">帐号设置</a></dd>
-                    <dd class="logout"><a rel="nofollow" href="DoFirm?flag=firmout">退出</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="/firmout.do">退出</a></dd>
             	</dl>
           </div>
     </div>
@@ -101,7 +101,7 @@ console.log(1);
 	                   
 	                     <div class="clear"></div>
 	                                        			
-	                        <form class="clear editDetail" id="editDetailForm" action="DoFirm" method="get">
+	                        <form class="clear editDetail" id="editDetailForm" action="editFirm.do" method="get">
 	                        	<input type="hidden" name="flag" value="editFirm">
 	                        	<input type="hidden" name = "firm_logo" id = "firm_logo"/>
 	                            <input type="text" placeholder="请输入公司简称" maxlength="15" value="${sessionScope.loginfirm.firm_realname }" name="firm_realname" id="firm_realname">     
@@ -130,7 +130,7 @@ console.log(1);
 								formData.append("uploadimg", fileData);
 								let img = ""
 								$.ajax({
-									url :"DoUploadImg",
+									url :"uploadfile.do",
 									type:"POST",
 									data: formData,
 									processData: false,

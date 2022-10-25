@@ -48,8 +48,8 @@ function myajax(page,size,firmid){
 	
 	$.ajax({
 		   type: "GET",    //请求类型
-		   url: "DoPosition", //请求的地址
-		   data:{flag:"getRecordByPositionId",page:page,size:size,firmid:firmid}, //要发送给服务器的参数
+		   url: "/getRecordByPositionId.do", //请求的地址
+		   data:{page:page,size:size,firmid:firmid}, //要发送给服务器的参数
 		   dataType: "json",  //指明返回的类型是json
 		   success: function(msg){
               alert(msg.page+" "+msg.size+" "+msg.maxPage+""+msg.RecordPositionlist[0].rs_positionid);
@@ -102,7 +102,7 @@ function myajax(page,size,firmid){
           		 if(currentPage==(i+1)){
           			 str=str+"第"+(i+1)+"页&nbsp;&nbsp;"	  
           		 }else{
-          			 str=str+"<a href='DoPositon?flag=getRecordByPositionId&positionid="+positionid+"&size=5&page="+(i+1)+"'>第"+(i+1)+"页</a>&nbsp;&nbsp;"	 	 
+          			 str=str+"<a href='/getRecordByPositionId.do&positionid="+positionid+"&size=5&page="+(i+1)+"'>第"+(i+1)+"页</a>&nbsp;&nbsp;"
           		 }
           		
           	   }
@@ -117,7 +117,7 @@ function myajax(page,size,firmid){
 <script>
 function updateSate(rs_id,status){
 	 
-	location.href="DoPosition?flag=updateReocrdPositionStatus&rs_id="+rs_id+"&status="+status;
+	location.href="/updateReocrdPositionStatus.do&rs_id="+rs_id+"&status="+status;
 }
 </script>
 

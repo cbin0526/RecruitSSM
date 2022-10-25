@@ -295,7 +295,7 @@ var youdao_conv_id = 271546;
     	    			//招聘者注册
     	    			$.ajax({
     	    				
-    	    				url:"DoFirm.do",
+    	    				url:"addFirm.do",
     	    				type:"GET",
         	    			data:{flag:"addFirm",firm_name:name,firm_pwd:pwd,firm_tel:tel,firm_email:email},
         	    			dataType:"text",

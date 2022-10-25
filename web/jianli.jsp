@@ -48,7 +48,7 @@ var youdao_conv_id = 271546;
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -122,7 +122,7 @@ var youdao_conv_id = 271546;
             		</div><!--end .basicShow-->
 
             		<div class="basicEdit dn">
-            			<form id="profileForm" action="DoCustomer">
+            			<form id="profileForm" action="updateCustomer.do">
             			<input type="hidden" name="flag" value="updateCustomer">
 						  <table>
 						    <tbody><tr>
@@ -457,7 +457,7 @@ $(function(){
 function myajax(page,size){
 	
 	  $.ajax({
-		 url:"DoRecord",    //请求的地址
+		 url:"getRecordByUidForAjax.do",    //请求的地址
 		 type:"GET",
 		 data:{page:page,size:size,flag:"getRecordByUidForAjax"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -479,7 +479,7 @@ function myajax(page,size){
 			"            			</span>\r\n" + 
 			"            			\r\n" + 
 			"            	</div>\r\n" + 
-			"            	\r\n" +" <p><span align=\'right\' style=\' \'><a href='DoRecord?flag=getRecordByRId&r_recordid="+msg.msgobject.recordlist[i].r_recordid+"'>查看</a></span></p>" + "<p><span align=\'right\' style=\' \'><a href=\'javascript:mydelete("+msg.msgobject.recordlist[i].r_recordid+")\'>删除</a></span></p>"+
+			"            	\r\n" +" <p><span align=\'right\' style=\' \'><a href='getRecordByRId.do?r_recordid="+msg.msgobject.recordlist[i].r_recordid+"'>查看</a></span></p>" + "<p><span align=\'right\' style=\' \'><a href=\'javascript:mydelete("+msg.msgobject.recordlist[i].r_recordid+")\'>删除</a></span></p>"+
 			"            	</div>"+"<p></p>"; 
 	        
 	        
@@ -571,14 +571,14 @@ function mydelete(op){
 	
 	if(confirm('你确定要删除这个简历吗？')){		
 		if(confirm('删除之后不能恢复，你确定要删除吗？')){
-			location.href="DoRecord?flag=deleteRecordByRid&r_recordid="+op;	
+			location.href="deleteRecordByRid.do?r_recordid="+op;
 		}
 		
 	}
 }
 function check(){
 	$.ajax({
-		 url:"DoCustomer",    //请求的地址
+		 url:"getSession2.do",    //请求的地址
 		 type:"GET",
 		 data:{flag:"getSession2"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -593,7 +593,7 @@ function check(){
 }
 function check1(){
 	 $.ajax({
-		 url:"DoCustomer",    //请求的地址
+		 url:"getSession1.do",    //请求的地址
 		 type:"GET",
 		 data:{flag:"getSession1"}, //发送到servlet端的参数 
 		 dataType:"json",
@@ -617,7 +617,7 @@ function loginout(){
 	
 	if(confirm('你确定要注销当前登录状态吗？')){
 		
-		location.href="DoCustomer?flag=loginout";
+		location.href="loginout.do";
 		
 	}
 	

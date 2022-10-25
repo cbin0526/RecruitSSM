@@ -50,7 +50,7 @@
 					<li class="current"><a href="index.jsp">首页</a></li>
 					<li></li>
 					<li></li>
-					<li><a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
+					<li><a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class=""target="_blank">查看岗位</a></li>
 					<li></li>
 					<li></li>
 					<li><a href="jianli.jsp" rel="nofollow">我的简历</a></li>
@@ -599,7 +599,7 @@
 			<div class="content">
 				<div id="search_box">
 					<div id="search_box">
-		<form  action="DoPosition?flag=ForGetFirmPositionByKey&page=1&siez=7" method="post">
+		<form  action="ForGetFirmPositionByKey.do?page=1&siez=7" method="post">
         <ul id="searchType">
         	        	<li data-searchtype="1" class="type_selected">职位</li>
         	<li data-searchtype="4">公司</li>
@@ -1195,7 +1195,7 @@
 							</div>
 						</li>				
 					</ul>
-					<a href="DoPosition?flag=ForGetFirmPositionByKey&size=7&page=1&key=" class="btn fr"target="_blank">查看更多</a>
+					<a href="ForGetFirmPositionByKey.do?size=7&page=1&key=" class="btn fr"target="_blank">查看更多</a>
 					
 				</div>
 

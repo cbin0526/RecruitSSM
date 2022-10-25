@@ -1476,7 +1476,7 @@ div.BMap_cmLstItem {
             	</dt>
                     <dd><a href="positions.html">我发布的职位</a></dd>
                     <dd><a href="editfirm.jsp">帐号设置</a></dd>
-                    <dd class="logout"><a rel="nofollow" href="DoFirm?flag=firmout">退出</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="/firmout.do">退出</a></dd>
             	</dl>
           </div>
     </div>
@@ -1537,7 +1537,7 @@ div.BMap_cmLstItem {
 						<div class="ccc_tr">
 							已发布 <span>0</span> 个职位 
 						</div>
-						<form action="DoPosition" method="post" id="jobForm">
+						<form action="addPosition.do" method="post" id="jobForm">
 						<input type="hidden" value='${sessionScope.loginfirm.firm_id}' name="p_firmid" id="p_firmid">
 						
 						<input type="hidden" value='addPosition' name="flag" id="flag">

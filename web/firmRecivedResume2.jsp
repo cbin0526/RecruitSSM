@@ -62,7 +62,7 @@ $(document).ready(function(){
  		 if(currentPage==(i+1)){
  			 str=str+"第"+(i+1)+"页&nbsp;&nbsp;"	  
  		 }else{
- 			 str=str+"<a href='DoPosition?flag=getRecordByPositionId&positionid="+positionid+"&size=5&status="+status+"&page="+(i+1)+"'>第"+(i+1)+"页</a>&nbsp;&nbsp;"	 	 
+ 			 str=str+"<a href='getRecordByPositionId.do?positionid="+positionid+"&size=5&status="+status+"&page="+(i+1)+"'>第"+(i+1)+"页</a>&nbsp;&nbsp;"
  		 }
  		
  	   }
@@ -78,28 +78,28 @@ $(document).ready(function(){
 <script>
 function updateSate(rs_id,status,positionid){
 	
-	location.href="DoPosition?flag=updateReocrdPositionStatus&rs_id="+rs_id+"&status="+status+"&positionid="+positionid;
+	location.href="updateReocrdPositionStatus.do?rs_id="+rs_id+"&status="+status+"&positionid="+positionid;
 }
 
 function jumpjianliType(status){
 	
 	if(status==2){
 		$("#jianliType").html("已通知的简历");
-		location.href="DoPosition?flag=getRecordByPositionId&positionid="+positionid+"&status=2";
+		location.href="getRecordByPositionId.do?positionid="+positionid+"&status=2";
 	}else if(status==3){
 		$("#jianliType").html("不适合的简历");
-		location.href="DoPosition?flag=getRecordByPositionId&positionid="+positionid+"&status=3";
+		location.href="getRecordByPositionId.do?positionid="+positionid+"&status=3";
 	}else if (status == 0){
 		$("#jianliType").html("未查看的的简历");
-		location.href="DoPosition?flag=getRecordByPositionId&positionid="+positionid+"&status=0";
+		location.href="getRecordByPositionId.do?positionid="+positionid+"&status=0";
 	}else{
 		$("#jianliType").html("全部简历");
-		location.href="DoPosition?flag=getRecordByPositionId&positionid="+positionid+"&status=4";
+		location.href="getRecordByPositionId.do?positionid="+positionid+"&status=4";
 	}
 }
 
 function showrecordByid(recordid){
-	location.href="DoRecord?flag=getRecordByRIdInFirm&r_recordid="+recordid;
+	location.href="getRecordByRIdInFirm.do?r_recordid="+recordid;
 }
 </script>
 
@@ -124,7 +124,7 @@ function showrecordByid(recordid){
             	</dt>
                     <dd><a href="positions.html">我发布的职位</a></dd>
                     <dd><a href="editfirm.jsp">帐号设置</a></dd>
-                    <dd class="logout"><a rel="nofollow" href="DoFirm?flag=firmout">退出</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="firmout.do">退出</a></dd>
             	</dl>
           </div>
     </div>

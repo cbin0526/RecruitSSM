@@ -204,7 +204,7 @@ public class RecordController {
         //暂时设置为添加1号用户的简历
         if(service.modifyRecord(record)) {
             //添加成功
-            pw.print("<script>alert('简历修改成功');location.href='DoRecord?flag=getRecordByRId&r_recordid="+r_recordid+"';</script>");
+            pw.print("<script>alert('简历修改成功');location.href='getRecordByRId.do&r_recordid="+r_recordid+"';</script>");
         }else {
             //添加失败
             pw.print("<script>alert('简历修改失败');history.go(-1);</script>");

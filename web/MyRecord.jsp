@@ -119,7 +119,7 @@ function Myupload(img){
 						<!--end .basicShow-->
 
 						<div class="basicEdit">
-							<form id="profileForm" action="DoRecord" method="post">
+							<form id="profileForm" action="addRecord.do" method="post">
 							 <input type="hidden" name="flag" value="addRecord">
 							 <input type="hidden" id="r_photo" name="r_photo" >
 								<table>
@@ -439,7 +439,7 @@ function Myupload(img){
 									formData.append("uploadimg", fileData);
 									let img = ""
 									$.ajax({
-										url :"DoUploadImg",
+										url :"uploadfile.do",
 										type:"POST",
 										data: formData,
 										processData: false,
