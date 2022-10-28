@@ -75,7 +75,7 @@ console.log(1);
 	                	<div style="background-color:#fff;" class="c_logo">
 								<div >
 									<c:if test="${sessionScope.loginfirm.firm_logo==''}">
-										<img width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
+										<img id="MYIMG" width="190" height="190" alt="公司logo" src="style/images/logo_default.png">
 									</c:if>
 									<c:if test="${loginfirm.firm_logo!=''}">
 										<img id="MYIMG" width="190" height="190" src="uploadimg/${sessionScope.loginfirm.firm_logo}" >
@@ -88,15 +88,16 @@ console.log(1);
 									//选择之后显示到img中
 										var reader = new FileReader();	// 实例化一个FileReader对象，用于读取文件
 										var img = document.getElementById('MYIMG'); 	// 获取要显示图片的标签
-
+										let id = $("#MYIMG");
 										//读取File对象的数据
 										reader.onload = function(evt){
 											img.width  =  "190";
 									        img.height =  "190";
 											img.src = evt.target.result;
+
 										}
 									    reader.readAsDataURL(file.files[0]);
-										
+
 								}
 								</script>
 		                </div>
@@ -109,7 +110,7 @@ console.log(1);
 	                                        			
 	                        <form class="clear editDetail" id="editDetailForm" action="editFirm.do" method="get">
 	                        	<input type="hidden" name="flag" value="editFirm">
-	                        	<input type="hidden" name = "firm_logo" id = "firm_logo"/>
+	                        	<input type="hidden" name = "firm_logo" id = "firm_logo" value="${sessionScope.loginfirm.firm_logo}"/>
 	                            <input type="text" placeholder="请输入公司简称" maxlength="15" value="${sessionScope.loginfirm.firm_realname }" name="firm_realname" id="firm_realname">     
 	                            <input type="text" placeholder="公司类型" maxlength="100" value="${sessionScope.loginfirm.firm_type }" name="firm_type" id="firm_type">
 	                            
@@ -130,22 +131,20 @@ console.log(1);
 	                     <script type="text/javascript">
 	                     	//图片文件上传
 	                     	function MyUpload(){
-	                     		var formData = new FormData();
+	                     		let formData = new FormData();
 								// 获取文件
-								var fileData = $("#uploadimg").prop("files")[0];
+								let fileData = $("#uploadimg").prop("files")[0];
 								formData.append("uploadimg", fileData);
-								let img = ""
+								let img = "";
 								$.ajax({
 									url :"uploadfile.do",
 									type:"POST",
 									data: formData,
 									processData: false,
-								    contentType: false,
+									contentType: false,
 									success:function(msg){
-										
 										alert(msg);
-										img = msg+".jpg";
-										$("#firm_logo").val(img);
+										$("#firm_logo").val(msg);
 										document.getElementById("editDetailForm").submit();
 									}
 								})

@@ -111,4 +111,9 @@ public class RecordServiceImpl implements RecordService{
 		}
 		return dao.deleteRecord(r_recordid);
 	}
+
+	@Override
+	public Record queryOneRecordById(Integer user_id) {
+		return dao.queryOneRecordById(user_id).get(0);
+	}
 }

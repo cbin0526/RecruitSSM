@@ -423,8 +423,8 @@ var youdao_conv_id = 271546;
 										processData: false,
 									    contentType: false,
 										success:function(msg){
-											img = msg+".jpg";
-											$("#r_photo").val(img);
+											alert(msg);
+											$("#r_photo").val(msg);
 											Myupload(img);
 										}
 									})

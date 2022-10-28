@@ -1,10 +1,13 @@
 package com.etc.mvc.controller;
 
+import com.etc.mvc.dao.RecordDao;
 import com.etc.mvc.entity.Customer;
 import com.etc.mvc.entity.Firm;
+import com.etc.mvc.service.RecordService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,7 +25,8 @@ import java.util.List;
 
 @Controller
 public class UploadFileController {
-
+    @Autowired
+    private RecordService recordService;
 
     @RequestMapping("/uploadfile.do")
     public void uploadfile(HttpServletRequest request, HttpServletResponse response)throws Exception{
@@ -37,21 +41,23 @@ public class UploadFileController {
         //3.设置文件上传参数，编码
         upload.setHeaderEncoding("utf-8");
         //4.获取所有的请求参数
+        int flag = 1;
+        //获取当前登入的用户
+        HttpSession session = request.getSession();
+        //获取登入用户
+        Customer logincustomer = (Customer) session.getAttribute("logincustomer");
+        Firm loginfirm = (Firm) session.getAttribute("loginfirm");
         try {
             //获取所有请求参数
             List<FileItem> list = upload.parseRequest(request);
             for (FileItem fileItem : list) {
 
                 if(!fileItem.isFormField() && fileItem.getName() != null && !"".equals(fileItem.getName())) {
+                    flag = 0;
                     //上传的文件
                     //获取上传文件的名字
                     String fileName = fileItem.getName();
                     //重命名文件
-                    //获取当前登入的用户
-                    HttpSession session = request.getSession();
-                    //获取登入用户
-                    Customer logincustomer = (Customer) session.getAttribute("logincustomer");
-                    Firm loginfirm = (Firm) session.getAttribute("loginfirm");
                     if(logincustomer != null) {
                         //登入的是应聘者
                         fileName = System.currentTimeMillis() + "-" + logincustomer.getU_userid();
@@ -71,12 +77,28 @@ public class UploadFileController {
                     //上传文件
                     try {
                         fileItem.write(new File(path, fileName+".jpg"));
-                        out.print(fileName);
+                        out.print(fileName+".jpg");
                         out.flush();
                         out.close();
                     }catch(Exception e){
                         e.printStackTrace();
                         out.print("0");
+                        out.flush();
+                        out.close();
+                    }
+                }
+                if(flag == 1){
+                    if(logincustomer != null){
+
+                        String userid1 = request.getParameter("userid");
+                        Integer userid = logincustomer.getU_userid();
+                        String img = recordService.queryOneRecordById(userid).getR_photo();
+                        out.print(img);
+                        out.flush();
+                        out.close();
+                    }
+                    if(loginfirm != null){
+                        out.print(loginfirm.getFirm_logo());
                         out.flush();
                         out.close();
                     }

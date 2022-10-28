@@ -59,4 +59,6 @@ public interface RecordService {
 	 * @return
 	 */
 	boolean deleteRecord (Integer r_recordid);
+
+	Record queryOneRecordById(Integer user_id);
 }
